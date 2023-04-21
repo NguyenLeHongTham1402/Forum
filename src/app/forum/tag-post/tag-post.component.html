@@ -1,0 +1,18 @@
+<h4 class="mt-4 ms-5">Tag: <span *ngIf="tag!=null">{{tag.name}}</span></h4>
+<hr/>
+<div class="row">
+    <div class="col-md-2 col-4">
+       
+    </div>
+    <div class="col-md-10 col-8">
+        <div *ngFor="let p of listPostByTag" class="mb-3 post me-5">
+            <a [routerLink]="['/detailPost',p.id]" (click)="updateViewPost(p.id)">
+                <h3>{{p.title}}</h3>
+            </a>
+            <p class="fst-italic mb-1"><span class="me-3">{{p.username}}</span>{{p.createdDate}}</p>
+            <p class="mb-1"><i class="fa fa-eye me-2" aria-hidden="true"></i>{{p.view}} Views</p>
+            <p class="text-right">{{p.like}}<i class="fa fa-thumbs-o-up ms-2" aria-hidden="true" (click)="updateLikePost(p.id)"></i></p>
+        </div>
+    </div>
+</div>
+<div class="me-5 back"><a routerLink="/forum"><i class="fa fa-arrow-left me-3" aria-hidden="true"></i>Back to Forum</a></div>

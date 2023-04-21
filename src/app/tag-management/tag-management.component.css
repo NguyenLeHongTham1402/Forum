@@ -1,0 +1,42 @@
+h1{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+.fm-search-create{
+    width: 80%;
+    margin: 10px auto;
+}
+
+.fm-search-create > div:nth-child(1){
+    text-align: center;
+}
+
+.fm-search-create > div:nth-child(1) a{
+    padding: 8px 40px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: sticky;
+    top: 50%;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.fm-search-create > div:nth-child(1) a:hover{
+    color: darkgray;
+}
+
+.fm-search-create > div:nth-child(2) input{
+    width: 95%;
+}
+
+.tag-dtl{
+    width: 75%;
+    margin: 20px auto;
+}
+
+.fa-pencil-square-o{
+    color: darkblue;
+}

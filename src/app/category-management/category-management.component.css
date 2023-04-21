@@ -1,0 +1,39 @@
+h1{
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    color: darkgray;
+}
+
+.fm-search-create{
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.fm-search-create > div:nth-child(2) input{
+    max-width: 90%;
+}
+
+.btn-create{
+    text-align: center;
+}
+
+.btn-create a{
+    text-decoration: none;
+    padding: 9px 50px;
+    background-color: rgba(0,0,0,0.9);
+    position: sticky;
+    top: 50%;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.btn-create a:hover{
+    color: darkgrey;
+}
+
+.cate-dtl{
+    max-width: 70%;
+    margin: 18px auto;
+}

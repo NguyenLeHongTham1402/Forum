@@ -1,0 +1,83 @@
+<h1>Category Managemanet</h1>
+
+<div class="row fm-search-create">
+    <div class="col-md-5 col-12 mt-3 btn-create">
+        <a routerLink="/category-management/create">Create</a>
+    </div>
+    <div class="col-md-7 col-12 mt-3">
+        <input type="text" (change)="textChange($event)" placeholder="Search . . ." id="search" class="form-control" />
+    </div>
+</div>
+
+<table class="table cate-dtl">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let c of listCategories">
+            <td>
+                <i class="fa fa-pencil-square me-3" aria-hidden="true" data-bs-toggle="modal"
+                    data-bs-target="#editModal" (click)="edit(c)"></i>
+                <i class="fa fa-trash-o" aria-hidden="true" data-bs-toggle="modal" data-bs-target="#delModal"
+                    (click)="delCate(c.id)"></i>
+            </td>
+            <td>{{c.id}}</td>
+            <td>{{c.name}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<!-- Modal Edit Category -->
+<div class="modal" id="editModal">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Edit Category</h4>
+                <button type="button" (click)="checkSubmitEdit()" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form [formGroup]="editCate" (ngSubmit)="updateCategory()">
+                    <input type="text" class="form-control mb-3" formControlName="editId" #editId
+                        [ngModel]="editCategory.id" readonly />
+                    <input type="text" class="form-control mb-3" formControlName="editName" #editName
+                        [ngModel]="editCategory.name" placeholder="Input Name Category . . ." />
+                    <button type="button" (click)="checkSubmitEdit()" class="btn btn-danger me-3"
+                        data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!editCate.valid"
+                        data-bs-dismiss="modal">Save
+                        changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Delete Category -->
+<div class="modal fade" id="delModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Do you want to delete it?</p>
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" class="btn btn-secondary me-3" data-bs-dismiss="modal">Close</button>
+                <button (click)="removeCate()" type="button" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

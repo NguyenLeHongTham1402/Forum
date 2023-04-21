@@ -1,0 +1,33 @@
+<form class="fmSearch mt-4" [formGroup]="searchForm" (ngSubmit)="onSearch()">
+    <input formControlName="searchVal" class="me-4" type="text" id="search" placeholder="Input Keyword . . ."/>
+    <input class="btn btn-outline-success me-4" type="submit" value="Search"/>
+    <input class="btn btn-outline-danger" (click)="onReload()" type="button" value="Reset"/>
+</form>
+
+<div class="row mt-4 ms-4 me-4">
+    <div class="col-md-3 col-4">
+        <div>
+            <h4>Categories</h4>
+            <ul>
+                <li *ngFor="let c of listCates"><a [routerLink]="['/postOfCate', c.id]">{{c.name}}</a></li>
+            </ul>
+        </div>
+        <hr />
+        <div>
+            <h4>Tags</h4>
+            <ul>
+                <li *ngFor="let t of listTags"><a [routerLink]="['/postOfTag', t.id]">{{t.name}}</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-9 col-8">
+        <div *ngFor="let p of listPosts" class="mb-3 post">
+            <a [routerLink]="['/detailPost',p.id]" (click)="updateViewPost(p.id)">
+                <h3>{{p.title}}</h3>
+            </a>
+            <p class="fst-italic mb-1"><span class="me-3">{{p.username}}</span>{{p.createdDate}}</p>
+            <p class="mb-1"><i class="fa fa-eye me-2" aria-hidden="true"></i>{{p.view}} views</p>
+            <p class="text-right mb-1">{{p.like}}<i class="fa fa-thumbs-o-up ms-2" aria-hidden="true" (click)="updateLikePost(p.id)"></i></p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,98 @@
+
+<div class="info-post-dtl">
+    <h2>{{postDtl.title}}</h2>
+    <p>{{postDtl.content}}</p>
+    <p>{{postDtl.username}} - {{postDtl.createdDate}}</p>
+    <div class="row">
+        <div class="col-md-9 col-9 me-3 view">{{postDtl.view}}<i class="fa fa-eye ms-2" aria-hidden="true"></i></div>
+        <div class="col-md-2 col-2"><i class="fa fa-thumbs-o-up me-2" aria-hidden="true" (click)="updateLikePost(postDtl.id)"></i>{{postDtl.like}}</div>
+    </div>
+</div>
+<hr class="mt-4 mb-4 container"/>
+<div class="cmt-post">
+    <h5>Form Comment</h5>
+    <form [formGroup]="cmtForm" (ngSubmit)="onPostCmt()">
+        <div class="mb-3">
+            <label for="cmtTitle" class="form-label">Title</label>
+            <input formControlName="cmtTitle" type="text" class="form-control" id="cmtTitle"
+                placeholder="Input Title . . .">
+        </div>
+        <div class="mb-3">
+            <label for="cmtContent" class="form-label">Content</label>
+            <textarea class="form-control" formControlName="cmtContent" id="cmtContent" rows="4" placeholder="Input Content . . ."></textarea>
+        </div>
+        <div class="mb-3">
+            <button *ngIf="isUserlogin" type="submit" [disabled]="!cmtForm.valid" class="btn btn-primary">Post Comment</button>
+            <p *ngIf="!isUserlogin" class="fst-italic text-center">You're not signin. Please <a routerLink="/signin">signin</a> to see the comments</p>
+        </div>
+    </form>
+    <h4>Comments</h4>
+    <hr />
+    <div *ngIf="comments!=null && isUserlogin">
+        <div *ngFor="let c of comments" class="row">
+            <div class="col-md-2 col-2 text-center">
+                <img src="{{c.usernameNavigation.avatar}}" width="60" alt="Image" />
+            </div>
+            <div class="col-md-10 col-10 mb-3">
+                <div>
+                    <h6>{{c.title}}</h6>
+                    <p class="mb-1">{{c.content}}</p>
+                    <p><span class="fst-italic">{{c.username}}</span> <span><i class="fa fa-thumbs-o-up ms-3" aria-hidden="true" (click)="updateLikeComment(c.id)"></i> {{c.like}}</span>
+                        <i data-bs-toggle="modal" data-bs-target="#replyCmt" class="fa fa-reply ms-4"
+                            aria-hidden="true" (click)="transmitCmtId(c.id)">
+                        </i>
+                    </p>
+                </div>
+                <div *ngIf="c.replies!=null" class="mb-3 mt-4">
+                    <div *ngFor="let r of c.replies" class="row mb-3">
+                        <div class="col-md-1 col-2 text-center">
+                            <img src="{{r.usernameNavigation.avatar}}" width="60" alt="Image" />
+                        </div>
+                        <div class="col-md-11 col-10">
+                            <h6>{{r.title}}</h6>
+                            <p class="mb-1">{{r.content}}</p>
+                            <p><span class="fst-italic">{{r.username}}</span> <span class="ms-3"><i class="fa fa-thumbs-o-up me-2"
+                                        aria-hidden="true" (click)="updateLikeReply(r.id)"></i>{{r.like}}</span>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="replyCmt" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Reply Comment</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="repCmtForm" (ngSubmit)="repCmtPost()">
+                    <div class="mb-3">
+                        <label for="repParentId" class="form-label" hidden>Comment Id</label>
+                        <input formControlName="repParentId" type="text" class="form-control" id="repParentId" hidden>
+                    </div>
+                    <div class="mb-3">
+                        <label for="repTitle" class="form-label">Title</label>
+                        <input formControlName="repTitle" type="text" class="form-control" id="repTitle"
+                            placeholder="Input Title . . .">
+                    </div>
+                    <div class="mb-3">
+                        <label for="repContent" class="form-label">Content</label>
+                        <textarea formControlName="repContent" class="form-control" id="repContent" rows="4"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Post Reply</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+.fa-user-plus{
+    margin-right: 3px;
+}
+
+.fa-sign-in{
+    margin-right: 3px;
+}
+
+.fa-sign-out{
+    margin-right: 3px;
+}
+
+header{
+    position: relative;
+    width: 100%;
+    top: 0;
+}
+
+footer{
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}

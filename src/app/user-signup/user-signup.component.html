@@ -1,0 +1,48 @@
+<div class="container signup">
+    <div *ngIf="success&&show" class="alert alert-success alert-dismissible">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Success!</strong> {{message}}
+    </div>
+    <div *ngIf="!success&&show" class="alert alert-danger alert-dismissible">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Danger!</strong> {{message}}
+    </div>
+
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+        <h3 class="text-center mb-2 mt-2" style="color: darkgray;">SIGN-UP</h3>
+        <div class="form-outline mb-4">
+            <label class="form-label" for="registerName">Name</label>
+            <input type="text" id="registerName" formControlName="realname" class="form-control" />
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="registerUsername">Username</label>
+            <input type="text" id="registerUsername" formControlName="username" class="form-control"
+                autocomplete="off" />
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="registerPass">Password</label>
+            <input type="password" id="registerPass" formControlName="pass" class="form-control" />
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="registerRepeatEmail">Email</label>
+            <input type="email" formControlName="email" id="registerRepeatEmail" class="form-control" />
+        </div>
+
+        <div class="form-check d-flex justify-content-center mb-4">
+            <input formControlName="CheckInput" class="form-check-input me-2" type="checkbox" value=""
+                id="registerCheck" checked aria-describedby="registerCheckHelpText" />
+            <label class="form-check-label" for="registerCheck">
+                I have read and agree to the terms
+            </label>
+        </div>
+        
+        <div class="text-center btn-signup">
+            <button type="submit" [disabled]="!signupForm.valid"
+                class="btn text-uppercase btn-primary btn-block mb-3">Sign up</button>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,52 @@
+<h1>Tag Management</h1>
+<div class="row fm-search-create">
+    <div class="col-md-5 col-12 mt-3">
+        <a routerLink="/tag-management/create">Create</a>
+    </div>
+    <div class="col-md-7 col-12 mt-3">
+        <input type="text" class="form-control" id="search" placeholder="Search . . ."/>
+    </div>
+</div>
+<table class="table tag-dtl">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Created Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let t of listTags">
+            <td>
+                <i class="fa fa-pencil-square-o" aria-hidden="true" data-bs-toggle="modal" data-bs-target="#editModal" (click)="edit(t)"></i>
+            </td>
+            <td>{{t.id}}</td>
+            <td>{{t.name}}</td>
+            <td>{{t.createdDate}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-uppercase" id="exampleModalLabel">Edit Tag</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="editFormTag" (ngSubmit)="onSubmit()">
+                <input type="text" class="form-control mb-3" id="edId" #edId [(ngModel)]="editTag.id" formControlName="edId" readonly/>
+                <input type="text" class="form-control mb-3" id="edName" #edName [(ngModel)]="editTag.name" formControlName="edName"/>
+                <input type="datetime-local" class="form-control mb-3" id="edCreared" #edCreared [(ngModel)]="editTag.createdDate" formControlName="edCreared" readonly/>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,18 @@
+a{
+    text-decoration: none;
+}
+
+.post{
+    border-bottom: 1px solid;
+}
+
+.fmSearch{
+    text-align: center;
+}
+
+.fmSearch input:nth-child(1){
+    width: 37%;
+    border: 1px solid;
+    border-radius: 20px;
+    padding: 8px;
+}

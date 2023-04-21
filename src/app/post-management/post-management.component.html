@@ -1,0 +1,140 @@
+<h1 class="text-center text-uppercase mt-4 mb-3">Post Management</h1>
+<div *ngIf="showMessage&&success" class="alert alert-success alert-dismissible">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Notification!</strong> {{message}}
+</div>
+<div *ngIf="showMessage&&!success" class="alert alert-warning alert-dismissible">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Notification!</strong> {{message}}
+</div>
+<div class="row fm-create-search">
+    <div class="col-md-5 col-12 mt-3">
+        <a routerLink="/create-post">Create</a>
+    </div>
+    <div class="col-md-7 col-12 mt-3">
+        <input type="text" class="form-control" id="search" />
+    </div>
+</div>
+<table class="table posts">
+    <thead>
+        <th></th>
+        <th>Id</th>
+        <th>Title</th>
+        <th>View</th>
+        <th>Like</th>
+        <th>Username</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of listPosts">
+            <td>
+                <i class="fa fa-trash-o me-2" (click)="delPost(p.id)" aria-hidden="true"></i>
+                <i (click)="getPostDetail(p.id)" data-bs-toggle="modal" data-bs-target="#edPost" class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>
+                <i (click)="getPostDetail(p.id)" data-bs-toggle="modal" data-bs-target="#dtPost" class="fa fa-info-circle"
+                    aria-hidden="true"></i>
+            </td>
+            <td>{{p.id}}</td>
+            <td>{{p.title}}</td>
+            <td>{{p.view}}</td>
+            <td>{{p.like}}</td>
+            <td>{{p.username}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Modal Detail -->
+<div class="modal fade" id="dtPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Post Detail</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div *ngIf="detailPost!=null" class="modal-body">
+                <input type="text" class="form-control mb-3" value="{{detailPost.id}}" readonly/>
+                <input type="text" class="form-control mb-3" value="{{detailPost.title}}" readonly />
+                <textarea class="form-control mb-3" value="{{detailPost.content}}" rows="4" readonly></textarea>
+                <input type="text" class="form-control mb-3" value="{{detailPost.createdDate}}" readonly />
+                <input type="text" class="form-control mb-3" value="{{detailPost.updatedDate}}" readonly />
+                <input type="text" class="form-control mb-3" value="{{detailPost.category.name}}" readonly />
+                <label>View</label>
+                <input type="text" class="form-control mb-3" value="{{detailPost.view}}" readonly />
+                <label>Like</label>
+                <input type="text" class="form-control mb-3" value="{{detailPost.like}}" readonly />
+                <input type="text" class="form-control mb-3" value="{{detailPost.username}}" readonly />
+                <div class="form-check mb-3">
+                    <input *ngIf="detailPost.isActive" class="form-check-input" type="checkbox" id="flexCheckChecked"
+                        checked readonly>
+                    <input *ngIf="!detailPost.isActive" class="form-check-input" type="checkbox" id="flexCheckChecked"
+                        readonly>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Is Active
+                    </label>
+                </div>
+
+                <div class="mb-3">
+                    <button class="btn btn-secondary me-3" *ngFor="let t of detailPost.postTags"
+                        type="button" disabled>{{t.tag.name}}</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Edit -->
+<div class="modal fade" id="edPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Post Detail</h5>
+                <button (click)="onRefresh()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div *ngIf="detailPost!=null" class="modal-body">
+                <div *ngIf="upd_showMessage&&upd_success" class="alert alert-success alert-dismissible">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>Notification!</strong> {{upd_message}}
+                </div>
+                <div *ngIf="upd_showMessage&&!upd_success" class="alert alert-warning alert-dismissible">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>Notification!</strong> {{upd_message}}
+                </div>
+                <form [formGroup]="editPost" (ngSubmit)="onSubmit()">
+                    <input formControlName="id" type="text" class="form-control mb-3" id="id" #id [(ngModel)]="detailPost.id" readonly/>
+                    <input formControlName="title" type="text" class="form-control mb-3" id="title" #edTitle [(ngModel)]="detailPost.title" />
+                    <textarea formControlName="content" class="form-control mb-3" id="content" #content [(ngModel)]="detailPost.content" rows="4" ></textarea>
+                    <input type="text" class="form-control mb-3" value="{{detailPost.createdDate}}" readonly />
+                    <input type="text" class="form-control mb-3" value="{{detailPost.updatedDate}}" readonly />
+                    <input type="text" class="form-control mb-3" value="{{detailPost.category.name}}" readonly />
+                    <label>View</label>
+                    <input type="text" class="form-control mb-3" value="{{detailPost.view}}" readonly />
+                    <label>Like</label>
+                    <input type="text" class="form-control mb-3" value="{{detailPost.like}}" readonly />
+                    <input type="text" class="form-control mb-3" value="{{detailPost.username}}" readonly />
+                    <div class="form-check mb-3">
+                        <input *ngIf="detailPost.isActive" class="form-check-input" type="checkbox" id="flexCheckChecked"
+                            checked readonly>
+                        <input *ngIf="!detailPost.isActive" class="form-check-input" type="checkbox" id="flexCheckChecked"
+                            readonly>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Is Active
+                        </label>
+                    </div>
+                    <label>Tags</label>
+                    <div class="mb-3">
+                        <button class="btn btn-secondary me-3" *ngFor="let t of detailPost.postTags"
+                            type="button" disabled>{{t.tag.name}}</button>
+                    </div>
+                    <div class="form-group">
+                        <button (click)="onRefresh()" type="button" class="btn btn-danger me-3" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" [disabled]="!editPost.valid" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>

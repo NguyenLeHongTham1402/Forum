@@ -1,0 +1,41 @@
+h2{
+    text-transform: capitalize;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.fm-create-search{
+    width: 80%;
+    margin: 20px auto;
+}
+
+.fm-create-search > div:nth-child(1){
+    text-align: center;
+}
+
+.fm-create-search > div:nth-child(1) a{
+    padding: 8px 50px;
+    text-decoration: none;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: sticky;
+    top: 50%;
+}
+
+.fm-create-search > div:nth-child(2) input{
+    width: 80%;
+}
+
+.myposts{
+    width: 80%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.fa-info-circle{
+    color: darkgreen
+}
+
+.fa-pencil-square-o{
+    color: darkblue;
+}

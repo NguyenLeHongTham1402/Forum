@@ -1,0 +1,12 @@
+.signup{
+    max-width: 495px;
+    margin-top: 28px;
+    margin-bottom: 28px;
+    padding: 25px;
+    border-radius: 15px;
+    background-color: lightgrey;
+}
+
+.btn-signup button{
+    width: 100%;
+}

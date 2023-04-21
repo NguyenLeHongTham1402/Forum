@@ -1,0 +1,11 @@
+a{
+    text-decoration: none;
+}
+.back{
+    font-size: 18px;
+    text-align: right;
+}
+
+.post{
+    border-bottom: 1px solid;
+}

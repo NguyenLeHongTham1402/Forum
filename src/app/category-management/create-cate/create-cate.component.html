@@ -1,0 +1,23 @@
+<div class="container create-cate">
+    <h2>Create Category</h2>
+    <div *ngIf="showMessage&&!success" class="alert alert-warning alert-dismissible">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Warning!</strong> {{message}}
+    </div>
+    <div *ngIf="showMessage&&success" class="alert alert-info alert-dismissible">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Info!</strong> {{message}}
+    </div>
+    <form [formGroup]="formCreate" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3">
+            <label class="form-label" for="Name">Name</label>
+            <input type="text" class="form-control" id="Name" formControlName="Name" />
+        </div>
+        <div class="mb-3 btn-create">
+            <button type="submit" [disabled]="!formCreate.valid" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+    <div class="back">
+        <a routerLink="/category-management"><i class="fa fa-backward me-3" aria-hidden="true"></i>Back to list</a>
+    </div>
+</div>
