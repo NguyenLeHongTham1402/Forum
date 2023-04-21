@@ -1,0 +1,16 @@
+D:\ProjectCV\ForumProject\Forum\Forum.DAL\bin\Debug\netcoreapp3.1\Forum.DAL.deps.json
+D:\ProjectCV\ForumProject\Forum\Forum.DAL\bin\Debug\netcoreapp3.1\Forum.DAL.dll
+D:\ProjectCV\ForumProject\Forum\Forum.DAL\bin\Debug\netcoreapp3.1\Forum.DAL.pdb
+D:\ProjectCV\ForumProject\Forum\Forum.DAL\bin\Debug\netcoreapp3.1\Forum.Common.dll
+D:\ProjectCV\ForumProject\Forum\Forum.DAL\bin\Debug\netcoreapp3.1\Forum.Common.pdb
+D:\ProjectCV\ForumProject\Forum\Forum.DAL\obj\Debug\netcoreapp3.1\Forum.DAL.csproj.AssemblyReference.cache
+D:\ProjectCV\ForumProject\Forum\Forum.DAL\obj\Debug\netcoreapp3.1\Forum.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\ProjectCV\ForumProject\Forum\Forum.DAL\obj\Debug\netcoreapp3.1\Forum.DAL.AssemblyInfoInputs.cache
+D:\ProjectCV\ForumProject\Forum\Forum.DAL\obj\Debug\netcoreapp3.1\Forum.DAL.AssemblyInfo.cs
+D:\ProjectCV\ForumProject\Forum\Forum.DAL\obj\Debug\netcoreapp3.1\Forum.DAL.csproj.CoreCompileInputs.cache
+D:\ProjectCV\ForumProject\Forum\Forum.DAL\obj\Debug\netcoreapp3.1\Forum.DAL.csproj.CopyComplete
+D:\ProjectCV\ForumProject\Forum\Forum.DAL\obj\Debug\netcoreapp3.1\Forum.DAL.dll
+D:\ProjectCV\ForumProject\Forum\Forum.DAL\obj\Debug\netcoreapp3.1\Forum.DAL.pdb
+D:\ProjectCV\ForumProject\Forum\Forum.DAL\bin\Debug\netcoreapp3.1\Forum.DAL.runtimeconfig.json
+D:\ProjectCV\ForumProject\Forum\Forum.DAL\bin\Debug\netcoreapp3.1\Forum.DAL.runtimeconfig.dev.json
+D:\ProjectCV\ForumProject\Forum\Forum.DAL\obj\Debug\netcoreapp3.1\Forum.DAL.genruntimeconfig.cache

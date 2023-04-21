@@ -1,0 +1,13 @@
+D:\ProjectCV\ForumProject\Forum\Forum.Common\bin\Debug\netcoreapp3.1\Forum.Common.deps.json
+D:\ProjectCV\ForumProject\Forum\Forum.Common\bin\Debug\netcoreapp3.1\Forum.Common.dll
+D:\ProjectCV\ForumProject\Forum\Forum.Common\bin\Debug\netcoreapp3.1\Forum.Common.pdb
+D:\ProjectCV\ForumProject\Forum\Forum.Common\obj\Debug\netcoreapp3.1\Forum.Common.csproj.AssemblyReference.cache
+D:\ProjectCV\ForumProject\Forum\Forum.Common\obj\Debug\netcoreapp3.1\Forum.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\ProjectCV\ForumProject\Forum\Forum.Common\obj\Debug\netcoreapp3.1\Forum.Common.AssemblyInfoInputs.cache
+D:\ProjectCV\ForumProject\Forum\Forum.Common\obj\Debug\netcoreapp3.1\Forum.Common.AssemblyInfo.cs
+D:\ProjectCV\ForumProject\Forum\Forum.Common\obj\Debug\netcoreapp3.1\Forum.Common.csproj.CoreCompileInputs.cache
+D:\ProjectCV\ForumProject\Forum\Forum.Common\obj\Debug\netcoreapp3.1\Forum.Common.dll
+D:\ProjectCV\ForumProject\Forum\Forum.Common\obj\Debug\netcoreapp3.1\Forum.Common.pdb
+D:\ProjectCV\ForumProject\Forum\Forum.Common\bin\Debug\netcoreapp3.1\Forum.Common.runtimeconfig.json
+D:\ProjectCV\ForumProject\Forum\Forum.Common\bin\Debug\netcoreapp3.1\Forum.Common.runtimeconfig.dev.json
+D:\ProjectCV\ForumProject\Forum\Forum.Common\obj\Debug\netcoreapp3.1\Forum.Common.genruntimeconfig.cache
